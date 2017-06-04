@@ -7,7 +7,7 @@ public class MatchBrackets {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		int t = in.nextInt();
-		Stack stack = new Stack();
+		MyStack stack = new MyStack();
 		for (int a0 = 0; a0 < t; a0++) {
 			String s = in.next();
 			stack.clear();
@@ -35,7 +35,7 @@ public class MatchBrackets {
 	}
 }
 
-class Stack {
+class MyStack {
 	Character[] data = new Character[1000];
 	int top = -1;
 
@@ -59,8 +59,8 @@ class Stack {
 		top = -1;
 	}
 
-	public Stack clone() {
-		Stack newStack = new Stack();
+	public MyStack clone() {
+		MyStack newStack = new MyStack();
 		newStack.data = this.data.clone();
 		newStack.top = this.top;
 		return newStack;
