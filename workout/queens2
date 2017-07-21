@@ -1,0 +1,16 @@
+ 9  O Clock r,c-1; r,c-2; ... ; r,0 			=> c squares
+10 O Clock r-1,c-1; r-2,c-2, ... ; 0,x/x,0	=> Min(r,c) squares
+12 O Clock r-1,c; r-2,c; ... ; 0,c; 		=> r squares
+2  O Clock r-1,c+1; r-2,c+2; ... ; 0,n-1 	=> Min(r,n-c) sqauares
+3  O Clock r,c+1; r,c+2; ... ; r,n-1 		=> n-c squares
+5  O Clock r+1,c+1; r+2,c+2; ... ; n-1,n-1 	=> Min(n-r,n-c) squares
+6  O Clock r+1,c; r+2,c; ... ; n-1,c 		=> n-r squares
+7  O Clock r+1,c-1; r+2,c-2; ... ; n-1,0 	=> Min(n-r,c) squares
+
+r->[c]
+c->[r]
+
+9 O Clock - get row find max c less than c if max c >c-1 then c else c-1-maxc
+3 O Clock - get row find min c greater than c if min c <c+1 then n-c else n-c-minc
+12 O Clock - get column find max r less than r. If max r > r-1 then r else r-1-maxr
+6 O Clock - get column find min r greater than r. If min r< r+1 then n-r else n-1-r
