@@ -90,11 +90,11 @@ class Clock {
 		minutes.put(22, "twenty two minutes past ");
 		minutes.put(23, "twenty three minutes past ");
 		minutes.put(24, "twenty four minutes past ");
-		minutes.put(25, "twenty five minute past ");
-		minutes.put(26, "twenty six minute past ");
+		minutes.put(25, "twenty five minutes past ");
+		minutes.put(26, "twenty six minutes past ");
 		minutes.put(27, "twenty seven minute past ");
-		minutes.put(28, "twenty eight minute past ");
-		minutes.put(29, "twenty nine minute past ");
+		minutes.put(28, "twenty eight minutes past ");
+		minutes.put(29, "twenty nine minutes past ");
 		minutes.put(30, "half past ");
 		minutes.put(31, "twenty nine minutes to ");
 		minutes.put(32, "twenty eight minutes to ");
