@@ -1,4 +1,4 @@
-package iview;
+package iview.kickdrum;
 
 import java.util.ArrayList;
 import java.util.Collections;
