@@ -43,14 +43,14 @@ public class ShortestPathWeightedGraph {
 
 }
 
-class Edge {
+class SimpleEdge {
 	int node;
 	int weight;
 }
 
 class UnDirectionalWeightedGraph {
 	int size;
-	Set<Edge>[] adj;
+	Set<SimpleEdge>[] adj;
 
 	public UnDirectionalWeightedGraph(int n) {
 		size = n;
@@ -72,7 +72,7 @@ class UnDirectionalWeightedGraph {
 
 		shortestPaths[startNode] = 0;
 		shortPathTree.add(startNode);
-		for (Edge e : adj[startNode]) {
+		for (SimpleEdge e : adj[startNode]) {
 			shortestPaths[e.node] = e.weight;
 			computedVertextNotInSpt.add(e.node);
 		}
@@ -89,7 +89,7 @@ class UnDirectionalWeightedGraph {
 				for (int minNode : minNodes) {
 					shortPathTree.add(minNode);
 					if (null != adj[minNode]) {
-						for (Edge e : adj[minNode]) {
+						for (SimpleEdge e : adj[minNode]) {
 							if (!shortPathTree.contains(e) && !minNodes.contains(e)) {
 								shortestPaths[e.node] = shortestPaths[minNode] + 6;
 								computedVertextNotInSpt.add(e.node);
@@ -141,12 +141,12 @@ class UnDirectionalWeightedGraph {
 	}
 
 	private void addOneDedge(int n1, int n2, int weight) {
-		Edge edj = new Edge();
+		SimpleEdge edj = new SimpleEdge();
 		edj.node = n2;
 		edj.weight = weight;
-		Set<Edge> n1Adjs = adj[n1];
+		Set<SimpleEdge> n1Adjs = adj[n1];
 		if (null == n1Adjs) {
-			n1Adjs = new HashSet<Edge>();
+			n1Adjs = new HashSet<SimpleEdge>();
 			adj[n1] = n1Adjs;
 		}
 		n1Adjs.add(edj);
