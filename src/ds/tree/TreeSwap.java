@@ -1,4 +1,4 @@
-package rank;
+package ds.tree;
 
 import java.util.Scanner;
 

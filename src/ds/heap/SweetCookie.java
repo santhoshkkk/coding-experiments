@@ -1,4 +1,4 @@
-package heap;
+package ds.heap;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package q;
+package ds.q;
 
 import java.util.Scanner;
 

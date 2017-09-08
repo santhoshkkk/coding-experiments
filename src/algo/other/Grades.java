@@ -1,4 +1,4 @@
-package algo;
+package algo.other;
 
 import java.util.Scanner;
 

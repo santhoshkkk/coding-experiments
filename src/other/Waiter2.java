@@ -1,4 +1,4 @@
-package rank;
+package other;
 
 import java.util.ArrayList;
 import java.util.List;

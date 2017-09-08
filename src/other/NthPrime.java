@@ -1,4 +1,4 @@
-package rank;
+package other;
 
 public class NthPrime {
 

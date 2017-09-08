@@ -1,4 +1,4 @@
-package rank;
+package ds.stack;
 
 import java.util.Scanner;
 
