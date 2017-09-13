@@ -26,7 +26,7 @@ public class LowestCommonAnscestorNode {
 			tree.binarySearhInsert(num);
 		}
 		int lca = tree.lowestCommonAncestor(num1, num2);
-
+		System.out.println(lca);
 		s.close();
 	}
 
@@ -54,7 +54,7 @@ class MyTree {
 	}
 
 	public int lowestCommonAncestor(int num1, int num2) {
-		
+
 		return 0;
 	}
 

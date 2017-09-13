@@ -1,11 +1,9 @@
 package ds.q;
 
-import java.util.LinkedList;
-
+//TODO solve
 public class CastleOnTheGrid {
 
 	public static void main(String[] args) {
-		LinkedList<Integer> temp[];
 	}
 
 }

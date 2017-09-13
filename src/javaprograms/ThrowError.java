@@ -1,12 +1,11 @@
-package java;
+package javaprograms;
 
-public class ThrowErrorCatchThrowable {
+public class ThrowError {
 
   public static void main(String[] args) {
-
     try {
       throw new Error();
-    } catch (Throwable e) {
+    } catch (Exception e) {
       System.out.println("Unknown error");
     }
   }

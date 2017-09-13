@@ -1,4 +1,4 @@
-package java;
+package javaprograms;
 
 public class TestNullCast {
 
@@ -6,5 +6,6 @@ public class TestNullCast {
 
   Integer i = (Integer)null;
   System.out.println("Hello");
+  System.out.println(i);
   }
 }

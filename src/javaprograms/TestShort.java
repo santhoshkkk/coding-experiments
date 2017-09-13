@@ -1,4 +1,4 @@
-package java;
+package javaprograms;
 
 public class TestShort {
 
