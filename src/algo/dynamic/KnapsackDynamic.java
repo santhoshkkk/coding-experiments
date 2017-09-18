@@ -46,7 +46,6 @@ public class KnapsackDynamic {
 					allValues[items][weight] = max(
 							values[items - 1] + allValues[items - 1][weight - weights[items - 1]],
 							allValues[items - 1][weight]);
-					;
 				}
 			}
 		}

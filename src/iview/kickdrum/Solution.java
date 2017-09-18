@@ -154,6 +154,7 @@ public class Solution {
 		}
 
 		fancySort(_exps);
+		in.close();
 
 	}
 

@@ -24,6 +24,7 @@ public class BudgetShopping {
 
 		budgetShopping(n, quant, cost, m, books);
 		System.out.println(books[0]);
+		s.close();
 
 	}
 
