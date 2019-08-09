@@ -89,22 +89,11 @@ public class LinkedPriorityQueue {
     private void insertAfterHead(PriorityQueueLinkedListNode newNode) {
         PriorityQueueLinkedListNode node = head;
         PriorityQueueLinkedListNode next;
-        do {
-            next = node.getNext();
-
-            if (null == next) {
-                node.setNext(newNode);
-                break;
-            } else {
-                if (next.getPriority() < newNode.getPriority()) {
-                    node.setNext(newNode);
-                    newNode.setNext(next);
-                    break;
-                }
-            }
-            node = next;
-
-        } while (null != node);
+        while (node.getNext() != null && node.getNext().getPriority() > newNode.getPriority()) {
+            node = node.getNext();
+        }
+        newNode.setNext(node.getNext());
+        node.setNext(newNode);
     }
 
     private boolean isEmpty() {
