@@ -19,8 +19,8 @@ public class RotateMatrixInPlace {
         int subArrayMaxRows = (int) Math.floor(length / 2);
         int subArrayMaxCols = (int) Math.ceil((float) length / 2);
         int[] temp = new int[4];
-        for (int r = 0; r < subArrayMaxRows; r++) {
-            for (int c = 0; c < subArrayMaxCols; c++) {
+        for (int r = 0; r < subArrayMaxRows; r++) { //O(r)
+            for (int c = 0; c < subArrayMaxCols; c++) { //O(k)
                 int[] currentIndex = {r, c};
                 for (int k = 0; k < 4; k++) {
                     temp[k] = matrix[currentIndex[0]][currentIndex[1]];
