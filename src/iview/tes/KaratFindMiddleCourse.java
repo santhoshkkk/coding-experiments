@@ -50,8 +50,61 @@ Sample output 3:
 
 */
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class KaratFindMiddleCourse {
     //TODO
+    static List<String> findMiddleCourse(String[][] courseDependencies) {
+
+        List<String> courses = buildCourseOrderFromDependency(courseDependencies);
+
+        return findMiddleEntry(courses);
+
+    }
+
+    private static List<String> findMiddleEntry(List<String> courses) {
+        List<String> subList;
+        if (courses.size() % 2 == 0) {
+            subList = courses.subList(((courses.size() - 1) / 2) + 1, ((courses.size() - 1) / 2) + 2);
+        } else {
+            subList = courses.subList((courses.size()) / 2, ((courses.size()) / 2) + 1);
+        }
+        System.out.println("subList: " + subList);
+        return subList;
+    }
+
+    private static List<String> buildCourseOrderFromDependency(String[][] dependencies) {
+        List<String> courses = new ArrayList<>();
+        int[] visited = new int[dependencies.length];
+        int remaining = dependencies.length;
+
+        courses.add(dependencies[0][1]);
+        courses.add(dependencies[0][0]);
+        remaining--;
+        visited[0] = 1;
+        while (remaining > 0) {
+            for (int i = 0; i < visited.length; i++) {
+                if (visited[i] == 0) {
+                    if (courses.contains(dependencies[i][1])) {
+                        courses.add(dependencies[i][0]);
+                        remaining--;
+                        visited[i] = 1;
+                    } else if (courses.contains(dependencies[i][0])) {
+                        courses.add(0, dependencies[i][1]);
+                        remaining--;
+                        visited[i] = 1;
+                    }
+                }
+            }
+        }
+
+        System.out.println("courses: " + courses);
+
+        return courses;
+
+    }
+
     public static void main(String[] argv) {
         String[][] prereqsCourses1 = {
                 {"Foundations of Computer Science", "Operating Systems"},
@@ -62,15 +115,21 @@ public class KaratFindMiddleCourse {
                 {"Software Design", "Computer Networks"}
         };
 
+        System.out.println(findMiddleCourse(prereqsCourses1));
+
         String[][] prereqsCourses2 = {
                 {"Data Structures", "Algorithms"},
                 {"Algorithms", "Foundations of Computer Science"},
                 {"Foundations of Computer Science", "Logic"}
         };
 
+        System.out.println(findMiddleCourse(prereqsCourses2));
+
         String[][] prereqsCourses3 = {
                 {"Data Structures", "Algorithms"}
         };
+
+        System.out.println(findMiddleCourse(prereqsCourses3));
 
     }
 
