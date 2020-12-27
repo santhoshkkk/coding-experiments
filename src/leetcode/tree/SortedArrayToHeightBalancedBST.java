@@ -6,13 +6,6 @@ class TreeNode {
     TreeNode left;
     TreeNode right;
 
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-        this.val = val;
-    }
-
     TreeNode(int val, TreeNode left, TreeNode right) {
         this.val = val;
         this.left = left;
@@ -50,22 +43,13 @@ public class SortedArrayToHeightBalancedBST {
     }
 
     private static TreeNode sortedArrayToBST(int[] nums, int start, int end) {
-        if (start == end) {
-            return new TreeNode(nums[start], null, null);
-        }
-        int middle = start + ((end - start) / 2);
-
-        if (middle == start) {
-            TreeNode right = sortedArrayToBST(nums, middle + 1, end);
-            return new TreeNode(nums[start], null, right);
-        } else if (middle == end) {
-            TreeNode left = sortedArrayToBST(nums, start, middle - 1);
-            return new TreeNode(nums[end], left, null);
-        } else {
-            TreeNode right = sortedArrayToBST(nums, middle + 1, end);
-            TreeNode left = sortedArrayToBST(nums, start, middle - 1);
-            return new TreeNode(nums[middle], left, right);
+        if (start > end) {
+            return null;
         }
 
+        int middle = (start + end) / 2;
+        return new TreeNode(nums[middle],
+                sortedArrayToBST(nums, start, middle - 1),
+                sortedArrayToBST(nums, middle + 1, end));
     }
 }
