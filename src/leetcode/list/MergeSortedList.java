@@ -11,54 +11,44 @@ public class MergeSortedList {
         l2.next = new ListNode(20);
         l2.next.next = new ListNode(100);
 
-        System.out.println(mergeTwoLists(l1, l2));
 
+        System.out.println(mergeTwoLists(null, null));
+        System.out.println(mergeTwoLists(l1, null));
+        System.out.println(mergeTwoLists(null, l2));
+        System.out.println(mergeTwoLists(l1, l2));
 
     }
 
     private static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-
-        if (null == l1) {
-            return l2;
-        } else if (null == l2) {
-            return l1;
-        }
-
-        ListNode head;
-        ListNode first;
-        ListNode second;
-        if (l1.val < l2.val) {
-            head = l1;
-            first = l1;
-            second = l2;
-        } else {
-            head = l2;
-            first = l2;
-            second = l1;
-        }
-
-        ListNode temp;
-        do {
-            while (null != first.next && first.next.val <= second.val) {
-                first = first.next;
-            }
-            if (null == first.next) {
-                first.next = second;
-                second = null;
+        ListNode head = new ListNode();
+        ListNode current = head;
+        while (null != l1 && null != l2) {
+            if (l1.val < l2.val) {
+                current.next = l1;
+                l1 = l1.next;
             } else {
-                temp = first.next;
-                first.next = second;
-                second = temp;
+                current.next = l2;
+                l2 = l2.next;
             }
-        } while (null != second);
+            current = current.next;
+        }
+        if (null == l1) {
+            current.next = l2;
+        } else {
+            current.next = l1;
+        }
 
-        return head;
+        return head.next;
+
     }
 }
 
 class ListNode {
     int val;
     ListNode next;
+
+    public ListNode() {
+    }
 
     public ListNode(int val) {
         this.val = val;
