@@ -32,8 +32,8 @@ public class FirstBadVersion {
         int badVersion = -1;
 
         while (start <= end && middle != start) {
-            long sum = (long) start + end;
-            middle = (int) (sum / 2);
+
+            middle = start + ((end - start) / 2);
             if (isBadVersion(middle)) {
                 badVersion = middle;
                 end = middle;
