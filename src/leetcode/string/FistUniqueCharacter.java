@@ -1,5 +1,8 @@
 package leetcode.string;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class FistUniqueCharacter {
     public static void main(String[] args) {
         System.out.println(firstUniqueChar("leetcode"));
@@ -9,20 +12,16 @@ public class FistUniqueCharacter {
     }
 
     public static int firstUniqueChar(String s) {
-        boolean duplicate = false;
+
+        Map<Character, Integer> charCount = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
-            duplicate = false;
-            for (int j = 0; j < s.length(); j++) {
-                if (i != j && s.charAt(i) == s.charAt(j)) {
-                    duplicate = true;
-                    break;
-                }
-            }
-            if (!duplicate) {
+            charCount.put(s.charAt(i), charCount.containsKey(s.charAt(i)) ? charCount.get(s.charAt(i)) + 1 : 1);
+        }
+        for (int i = 0; i < s.length(); i++) {
+            if (charCount.get(s.charAt(i)) == 1) {
                 return i;
             }
         }
         return -1;
-
     }
 }
