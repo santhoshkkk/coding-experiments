@@ -16,13 +16,7 @@ public class DeleteNodeGivenOnlyNodePointer {
     }
 
     public static void deleteNode(ListNode node) {
-        do {
-            node.val = node.next.val;
-            if (node.next.next == null) {
-                node.next = null;
-            } else {
-                node = node.next;
-            }
-        } while (node.next != null);
+        node.val = node.next.val;
+        node.next=node.next.next;
     }
 }
