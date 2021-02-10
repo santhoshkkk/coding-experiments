@@ -5,7 +5,7 @@ public class DeleteNodeGivenOnlyNodePointer {
         ListNode node = new ListNode(1);
         node.next = new ListNode(2);
         node.next.next = new ListNode(3);
-        node.next.next.next=new ListNode(4);
+        node.next.next.next = new ListNode(4);
 
         System.out.println(node);
         deleteNode(node);
@@ -16,13 +16,13 @@ public class DeleteNodeGivenOnlyNodePointer {
     }
 
     public static void deleteNode(ListNode node) {
-        do{
+        do {
             node.val = node.next.val;
-            if(node.next.next==null){
-                node.next=null;
-            }else{
+            if (node.next.next == null) {
+                node.next = null;
+            } else {
                 node = node.next;
             }
-        }while(node.next!=null);
+        } while (node.next != null);
     }
 }
