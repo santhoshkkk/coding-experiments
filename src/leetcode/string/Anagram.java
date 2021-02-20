@@ -17,18 +17,18 @@ public class Anagram {
             return false;
         }
 
-        return(toCharCount(s).equals(toCharCount(t)));
-    }
-
-    private static Map<Character, Integer> toCharCount(String s){
-        Map<Character, Integer> sChars = new HashMap<>();
-        for(int i=0; i<s.length(); i++) {
-            if(sChars.containsKey(s.charAt(i))){
-                sChars.put(s.charAt(i), sChars.get(s.charAt(i))+1);
-            }else {
-                sChars.put(s.charAt(i), 1);
+        int[] charCount = new int[26];
+        for(int i=0; i<s.length(); i++){
+            charCount[s.charAt(i)-'a']++;
+            charCount[t.charAt(i)-'a']--;
+        }
+        for(int i=0; i<charCount.length; i++){
+            if(charCount[i]<0){
+                return false;
             }
         }
-        return sChars;
+
+        return true;
     }
+
 }
