@@ -1,6 +1,8 @@
 package friends.practice;
 
 public class ClockNeedleAngle {
+    public static final int ANGLE_PER_HOUR = 30;
+    public static final int TOTAL_ANGLE = 360;
     int MINUTE_NEEDLE_ANGLE_PER_MINUTE = 6;
     float HOUR_NEEDLE_ANGLE_PER_MINUTE = 0.5f;
 
@@ -20,10 +22,10 @@ public class ClockNeedleAngle {
 
     float angle(int hour, int minute) {
         float minuteNeedleAngle = minute * MINUTE_NEEDLE_ANGLE_PER_MINUTE;
-        float hourNeedleAngle = hour * 30 + minute * HOUR_NEEDLE_ANGLE_PER_MINUTE;
+        float hourNeedleAngle = hour * ANGLE_PER_HOUR + minute * HOUR_NEEDLE_ANGLE_PER_MINUTE;
 
         return minuteNeedleAngle > hourNeedleAngle ? minuteNeedleAngle - hourNeedleAngle :
-                360 - (hourNeedleAngle - minuteNeedleAngle);
+                TOTAL_ANGLE - (hourNeedleAngle - minuteNeedleAngle);
 
     }
 
