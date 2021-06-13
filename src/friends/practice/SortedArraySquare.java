@@ -1,20 +1,15 @@
 package friends.practice;
 
+import java.util.Arrays;
+
 public class SortedArraySquare {
     public static void main(String[] args) {
         SortedArraySquare sortedArraySquare = new SortedArraySquare();
-        printResult(sortedArraySquare.sortedNumSum(new int[]{1, 2, 3, 4}));
-        printResult(sortedArraySquare.sortedNumSum(new int[]{-5, -2, 0, 3, 4}));
-        printResult(sortedArraySquare.sortedNumSum(new int[]{-1000, -100}));
-        printResult(sortedArraySquare.sortedNumSum(new int[]{}));
+        System.out.println(Arrays.toString(sortedArraySquare.sortedNumSum(new int[]{1, 2, 3, 4})));
+        System.out.println(Arrays.toString(sortedArraySquare.sortedNumSum(new int[]{-5, -2, 0, 3, 4})));
+        System.out.println(Arrays.toString(sortedArraySquare.sortedNumSum(new int[]{-1000, -100})));
+        System.out.println(Arrays.toString(sortedArraySquare.sortedNumSum(new int[]{})));
 
-        System.out.println();
-    }
-
-    static void printResult(int[] nums) {
-        for (int i = 0; i < nums.length; i++) {
-            System.out.print(nums[i] + " ");
-        }
         System.out.println();
     }
 
