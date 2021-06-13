@@ -1,31 +1,26 @@
 package friends.practice;
 
 public class ClockNeedleAngle {
-    public static final int ANGLE_PER_HOUR = 30;
-    public static final int TOTAL_ANGLE = 360;
-    int MINUTE_NEEDLE_ANGLE_PER_MINUTE = 6;
-    float HOUR_NEEDLE_ANGLE_PER_MINUTE = 0.5f;
+    private static final int TOTAL_ANGLE = 360;
+    private static final int HOUR_NEEDLE_ANGLE_PER_HOUR = 30;
+    private static final int MINUTE_NEEDLE_ANGLE_PER_MINUTE = 6;
+    private static final float HOUR_NEEDLE_ANGLE_PER_MINUTE = 0.5f;
 
     public static void main(String[] args) {
         ClockNeedleAngle clockNeedleAngle = new ClockNeedleAngle();
-        System.out.println(clockNeedleAngle.angle(12, 00));
-        System.out.println(clockNeedleAngle.angle(12, 01));
-        System.out.println(clockNeedleAngle.angle(12, 05));
-        System.out.println(clockNeedleAngle.angle(1, 00));
-        System.out.println(clockNeedleAngle.angle(2, 00));
-        System.out.println(clockNeedleAngle.angle(3, 00));
-        System.out.println(clockNeedleAngle.angle(3, 30));
-        System.out.println(clockNeedleAngle.angle(6, 00));
-        System.out.println(clockNeedleAngle.angle(6, 30));
-        System.out.println(clockNeedleAngle.angle(9, 15));
+        for (int hours = 1; hours < 13; hours++) {
+            for (int minutes = 0; minutes < 60; minutes++) {
+                System.out.println(hours + ":" + minutes + " - " + clockNeedleAngle.angle(hours, minutes) + " degrees");
+            }
+        }
     }
 
-    float angle(int hour, int minute) {
-        float minuteNeedleAngle = minute * MINUTE_NEEDLE_ANGLE_PER_MINUTE;
-        float hourNeedleAngle = hour * ANGLE_PER_HOUR + minute * HOUR_NEEDLE_ANGLE_PER_MINUTE;
+    float angle(int hours, int minutes) {
+        float minuteNeedleAngleFrom12 = minutes * MINUTE_NEEDLE_ANGLE_PER_MINUTE;
+        float hourNeedleAngleFrom12 = hours * HOUR_NEEDLE_ANGLE_PER_HOUR + minutes * HOUR_NEEDLE_ANGLE_PER_MINUTE;
 
-        return minuteNeedleAngle > hourNeedleAngle ? minuteNeedleAngle - hourNeedleAngle :
-                TOTAL_ANGLE - (hourNeedleAngle - minuteNeedleAngle);
+        return minuteNeedleAngleFrom12 > hourNeedleAngleFrom12 ? minuteNeedleAngleFrom12 - hourNeedleAngleFrom12 :
+                TOTAL_ANGLE - (hourNeedleAngleFrom12 - minuteNeedleAngleFrom12);
 
     }
 
