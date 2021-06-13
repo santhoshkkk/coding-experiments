@@ -1,4 +1,4 @@
-package krishna.practice;
+package friends.practice;
 
 public class SumOfDigits {
     public static void main(String[] args) {
