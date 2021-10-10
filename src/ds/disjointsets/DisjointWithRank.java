@@ -38,6 +38,7 @@ public class DisjointWithRank {
         ds.union(0, 7);
         System.out.println(Arrays.toString(ds.roots));
         System.out.println(Arrays.toString(ds.ranks));
+        System.out.println();
         ds.union(7, 6);
         System.out.println(Arrays.toString(ds.roots));
         System.out.println(Arrays.toString(ds.ranks));
@@ -64,10 +65,7 @@ public class DisjointWithRank {
     }
 
     public int find(int vertex) {
-        while (vertex != roots[vertex]) {
-            vertex = roots[vertex];
-        }
-        return vertex;
+        return roots[vertex];
     }
 
     public boolean connected(int vertex1, int vertex2) {
